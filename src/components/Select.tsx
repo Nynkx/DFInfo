@@ -10,7 +10,7 @@ type Props = {
   label?: string | "";
   items?: Array<OptionItem> | [];
   multiple?: boolean | false;
-  onChange: (e: React.ChangeEvent<HTMLSelectElement>, value: string) => void;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
 const Select: React.FC<Props> = (props) => {
@@ -22,7 +22,7 @@ const Select: React.FC<Props> = (props) => {
         id={props.id}
         multiple={props.multiple}
         className="select"
-        onChange={(e, value) => props.onChange(e, value) ?? null}
+        onChange={(e) => props.onChange?.(e)}
       >
         {props.items?.map((item, idx) => (
           <option key={`${props.id}-option-${idx}`} value={item.value}>

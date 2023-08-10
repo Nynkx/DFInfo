@@ -1,18 +1,36 @@
 import * as React from "react";
 
 import Select from "./Select";
+import api from "@/api";
 
 export const Header = () => {
-  const servers = [
-    {
-      value: "sv1",
-      text: "Server 1",
-    },
-    {
-      value: "sv2",
-      text: "Server 2",
-    },
-  ];
+  const [servers, setServers] = React.useState([]);
+
+  React.useEffect(() => {
+    setServers((servers) => {
+      const payload = [];
+      payload.push({ value: "a", text: "a" });
+
+      return payload;
+    });
+
+    return () => {};
+  });
+
+  // api.get("/servers").then((res) => {
+  //   setServers((servers) => {
+  //     const payload = [];
+  //     for (let row of res.data.rows) {
+  //       payload.push({
+  //         value: row.serverId,
+  //         text: row.serverName,
+  //       });
+  //       console.log(row);
+  //     }
+
+  //     return payload;
+  //   });
+  // });
 
   return (
     <>
