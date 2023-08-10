@@ -7,15 +7,21 @@ export const Header = () => {
   const [servers, setServers] = React.useState([]);
 
   React.useEffect(() => {
-    setServers((servers) => {
-      const payload = [];
-      payload.push({ value: "a", text: "a" });
+    api.get("/servers").then((res) => {
+      setServers((servers) => {
+        const payload = [];
+        for (let row of res.data.rows) {
+          payload.push({
+            value: row.serverId,
+            text: row.serverName,
+          });
+          console.log(row);
+        }
 
-      return payload;
+        return payload;
+      });
     });
-
-    return () => {};
-  });
+  }, []);
 
   // api.get("/servers").then((res) => {
   //   setServers((servers) => {
