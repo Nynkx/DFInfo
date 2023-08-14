@@ -2,41 +2,26 @@ import * as React from "react";
 
 import Select from "./Select";
 import api from "@/api";
+import { OptionItem, Servers } from "@/@types";
 
 export const Header = () => {
-  const [servers, setServers] = React.useState([]);
+  const [servers, setServers] = React.useState<Array<OptionItem>>();
 
   React.useEffect(() => {
     api.get("/servers").then((res) => {
-      setServers((servers) => {
-        const payload = [];
-        for (let row of res.data.rows) {
-          payload.push({
-            value: row.serverId,
-            text: row.serverName,
-          });
-          console.log(row);
-        }
+      const payload: Servers = res.data;
+      const items: OptionItem[] = [];
 
-        return payload;
-      });
+      for (let server of payload.rows) {
+        items.push({
+          text: server.serverName,
+          value: server.serverId,
+        } satisfies OptionItem);
+      }
+
+      setServers(items);
     });
   }, []);
-
-  // api.get("/servers").then((res) => {
-  //   setServers((servers) => {
-  //     const payload = [];
-  //     for (let row of res.data.rows) {
-  //       payload.push({
-  //         value: row.serverId,
-  //         text: row.serverName,
-  //       });
-  //       console.log(row);
-  //     }
-
-  //     return payload;
-  //   });
-  // });
 
   return (
     <>
