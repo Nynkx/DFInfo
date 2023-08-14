@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 
-_proxy_server/temp/*
+_proxy_server/tmp/*
