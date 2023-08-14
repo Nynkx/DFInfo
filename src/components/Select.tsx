@@ -1,19 +1,7 @@
+import { SelectComponentProps } from "@/@types";
 import * as React from "react";
 
-type OptionItem = {
-  value: string;
-  text: string;
-};
-
-type Props = {
-  id?: string | "";
-  label?: string | "";
-  items?: Array<OptionItem> | [];
-  multiple?: boolean | false;
-  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-};
-
-const Select: React.FC<Props> = (props) => {
+const Select: React.FC<SelectComponentProps> = (props) => {
   console.log(props.multiple);
   return (
     <>
