@@ -1,9 +1,12 @@
+import React from "react";
+
 export interface OptionItem {
   value: string;
   text: string;
 }
 export interface Props {
   id?: string | "";
+  children?: React.ReactNode;
 }
 
 export interface SelectComponentProps extends Props {
