@@ -9,7 +9,23 @@ import { Header } from "./components/Header";
 function App() {
   return (
     <div>
-      <Header></Header>
+      <Header>
+        <a href="#" className="header-item">
+          Header item 1
+        </a>
+        <a href="#" className="header-item">
+          Header item 2
+        </a>
+        <a href="#" className="header-item">
+          Header item 3
+        </a>
+        <a href="#" className="header-item">
+          Header item 4
+        </a>
+        <a href="#" className="header-item">
+          Header item 5
+        </a>
+      </Header>
       <div className="h-[200vh]">
         <p>1</p>
         <p>2</p>

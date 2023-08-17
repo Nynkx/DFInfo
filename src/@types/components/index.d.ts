@@ -15,3 +15,5 @@ export interface SelectComponentProps extends Props {
   multiple?: boolean | false;
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
+
+export interface HeaderProps extends Props {}

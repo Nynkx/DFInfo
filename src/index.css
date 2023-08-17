@@ -19,14 +19,19 @@
 }
 
 @layer components {
-  .header-item {
+  /* .header-item {
     @apply py-2;
-  }
+  } */
 
   .select {
     @apply border rounded-lg block w-auto p-2.5 
     /* bg-gray-50 border-gray-300 text-gray-900 */
     bg-gray-700 border-gray-600 text-white;
+  }
+
+  .header-item {
+    @apply block text-gray-300 
+    hover:bg-transparent hover:text-white;
   }
 }
 
