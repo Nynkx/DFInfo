@@ -17,6 +17,12 @@ func addJobsRoutes(router *gin.Engine) {
 	router.GET("/jobs", jobs.GetAll)
 }
 
+func addCharactersRoutes(router *gin.Engine) {
+	characters := new(controllers.CharactersController)
+
+	router.GET("/characters", characters.GetAll)
+}
+
 func CORSMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
@@ -42,6 +48,7 @@ func newRouter() *gin.Engine {
 
 	addServersListRoutes(router)
 	addJobsRoutes(router)
+	addCharactersRoutes(router)
 
 	return router
 }

@@ -8,6 +8,10 @@ import (
 	"os"
 )
 
+import (
+	"github.com/nynkx/dfinfo_server/utils"
+)
+
 type Job struct {
 	JobId   string    `json:"jobId"`
 	JobName string    `json:"jobName"`
@@ -24,8 +28,11 @@ type Jobs struct {
 	Rows []Job `json:"rows"`
 }
 
-func (h Jobs) GetAll() (*Jobs, error) {
-	url := "https://api.dfoneople.com/df/jobs?apikey=" + os.Getenv("API_KEY")
+func (jobs Jobs) GetAll() (*Jobs, error) {
+	builder := utils.URLBuilder{}
+
+	url := builder.Build(os.Getenv("BASE_URL")+"/jobs", map[string]string{
+		"apikey": os.Getenv("API_KEY")})
 
 	fmt.Println(url)
 

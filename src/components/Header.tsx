@@ -5,23 +5,23 @@ import api from "@/api";
 import { HeaderProps, OptionItem, Servers } from "@/@types";
 
 export const Header = (props: HeaderProps) => {
-  const [servers, setServers] = React.useState<Array<OptionItem>>();
+  // const [servers, setServers] = React.useState<Array<OptionItem>>();
 
-  React.useEffect(() => {
-    api.get("/servers").then((res) => {
-      const payload: Servers = res.data;
-      const items: OptionItem[] = [];
+  // React.useEffect(() => {
+  //   api.get("/servers").then((res) => {
+  //     const payload: Servers = res.data;
+  //     const items: OptionItem[] = [];
 
-      for (let server of payload.rows) {
-        items.push({
-          text: server.serverName,
-          value: server.serverId,
-        } satisfies OptionItem);
-      }
+  //     for (let server of payload.rows) {
+  //       items.push({
+  //         text: server.serverName,
+  //         value: server.serverId,
+  //       } satisfies OptionItem);
+  //     }
 
-      setServers(items);
-    });
-  }, []);
+  //     setServers(items);
+  //   });
+  // }, []);
 
   return (
     <>
