@@ -33,6 +33,10 @@
     @apply block text-gray-300 
     hover:bg-transparent hover:text-white;
   }
+
+  .body {
+    @apply max-w-5xl mx-auto min-h-full border border-white;
+  }
 }
 
 /* a {

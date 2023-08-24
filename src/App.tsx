@@ -26,7 +26,7 @@ function App() {
           Header item 5
         </a>
       </Header>
-      <div className="h-[200vh]">
+      <body className=" body">
         <p>1</p>
         <p>2</p>
         <p>3</p>
@@ -37,7 +37,7 @@ function App() {
         <p>8</p>
         <p>9</p>
         <p>0</p>
-      </div>
+      </body>
     </div>
   );
 }
