@@ -1,7 +1,8 @@
 import * as React from "react";
 
 import Select from "./Select";
-import api from "@/api";
+import api from "@/api/baseApi";
+
 import { HeaderProps, OptionItem, Servers } from "@/@types";
 
 export const Header = (props: HeaderProps) => {
