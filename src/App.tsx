@@ -13,7 +13,7 @@ function App() {
   const servers = useAppSelector<Servers>((state) => state.servers.servers);
   const appDispatch = useAppDispatch();
 
-  const items: Array<OptionItem> = [];
+  const [items, setItems] = useState<Array<OptionItem>>([]);
 
   React.useEffect(() => {
     appDispatch({
@@ -21,6 +21,16 @@ function App() {
       payload: { rows: [] },
     });
   }, []);
+
+  React.useEffect(() => {
+    console.log("asdasds");
+    const tempArr: Array<OptionItem> = [];
+    for (let row of servers?.rows ?? []) {
+      tempArr.push({ value: row.serverId, text: row.serverName });
+    }
+
+    setItems(tempArr);
+  }, [servers]);
 
   console.log(servers);
 
