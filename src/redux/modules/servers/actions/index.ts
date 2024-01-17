@@ -1,6 +1,7 @@
 import { call, put } from "redux-saga/effects";
 import { Api } from "@/api";
 import { Servers } from "@/@types/server_list";
+import { getServersErrorAction, getServersSuccessAction } from "../slice";
 
 export const FETCH_SERVERS_LIST_ACTION = "FETCH_SERVERS_LIST_ACTION";
 export const FETCH_SERVERS_LIST_SUCCESS = `${FETCH_SERVERS_LIST_ACTION}_SUCCESS`;
@@ -17,11 +18,8 @@ export function* fetchServersList() {
 
     console.log(data);
 
-    yield put<ServerListReducerPayload>({
-      type: FETCH_SERVERS_LIST_SUCCESS,
-      payload: data,
-    });
+    yield put(getServersSuccessAction(data));
   } catch (error) {
-    yield put({ type: FETCH_SERVERS_LIST_FAILURE, error });
+    yield put(getServersErrorAction((error as Error).message));
   }
 }
