@@ -1,11 +1,10 @@
 import { call, put } from "redux-saga/effects";
 import { Api } from "@/api";
 import { Servers } from "@/@types/server_list";
-import { getServersErrorAction, getServersSuccessAction } from "../slice";
+import { getServersErrorAction, getServersSuccessAction } from "./slice";
 
-export const FETCH_SERVERS_LIST_ACTION = "FETCH_SERVERS_LIST_ACTION";
-export const FETCH_SERVERS_LIST_SUCCESS = `${FETCH_SERVERS_LIST_ACTION}_SUCCESS`;
-export const FETCH_SERVERS_LIST_FAILURE = `${FETCH_SERVERS_LIST_ACTION}_FAILURE`;
+export const SERVERS = "servers";
+export const FETCH_SERVERS_LIST = `${SERVERS}/getServersAction`;
 
 export type ServerListReducerPayload = {
   type: string;

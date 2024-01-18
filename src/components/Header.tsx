@@ -1,29 +1,8 @@
 import * as React from "react";
 
-import Select from "./Select";
-import api from "@/api/baseApi";
+import { HeaderProps } from "@/@types";
 
-import { HeaderProps, OptionItem, Servers } from "@/@types";
-
-export const Header = (props: HeaderProps) => {
-  // const [servers, setServers] = React.useState<Array<OptionItem>>();
-
-  // React.useEffect(() => {
-  //   api.get("/servers").then((res) => {
-  //     const payload: Servers = res.data;
-  //     const items: OptionItem[] = [];
-
-  //     for (let server of payload.rows) {
-  //       items.push({
-  //         text: server.serverName,
-  //         value: server.serverId,
-  //       } satisfies OptionItem);
-  //     }
-
-  //     setServers(items);
-  //   });
-  // }, []);
-
+export const Header: React.FC = (props: HeaderProps) => {
   return (
     <>
       <header className="sticky top-0">

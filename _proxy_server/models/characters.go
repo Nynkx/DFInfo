@@ -34,12 +34,17 @@ type Characters struct {
 	Rows []Character `json:"rows"`
 }
 
-func (jobs Characters) Get(queries map[string]string) (*Characters, error) {
-	queries["apikey"] = os.Getenv("API_KEY")
+type RequestObj struct {
+	Server  string
+	Queries map[string]string
+}
+
+func (jobs Characters) Get(reqData *RequestObj) (*Characters, error) {
+	reqData.Queries["apikey"] = os.Getenv("API_KEY")
 
 	builder := utils.URLBuilder{}
 
-	url := builder.Build(os.Getenv("BASE_URL")+"/servers/cain/characters", queries)
+	url := builder.Build(os.Getenv("BASE_URL")+"/servers/"+reqData.Server+"/characters", reqData.Queries)
 
 	fmt.Println(url)
 

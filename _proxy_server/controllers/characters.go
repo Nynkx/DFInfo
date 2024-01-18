@@ -20,13 +20,21 @@ func (controller CharactersController) GetAll(ctx *gin.Context) {
 
 	queries := ctx.Request.URL.Query()
 
+	var requestData *models.RequestObj = &models.RequestObj{}
+
+	requestData.Server = "all"
+
 	for query := range queries {
+		if query == "server" {
+			requestData.Server = queries[query][0]
+		}
 		queriesObj[query] = queries[query][0]
 	}
+	requestData.Queries = queriesObj
 
 	fmt.Println(queriesObj)
 
-	result, err := CharactersModel.Get(queriesObj)
+	result, err := CharactersModel.Get(requestData)
 
 	if err != nil {
 		ctx.Error(err)

@@ -3,29 +3,36 @@ import React, { useState } from "react";
 import "@/App.css";
 import { Header } from "./components/Header";
 import Select from "./components/Select";
-import { useAppDispatch, useAppSelector } from "./hooks";
-import { OptionItem, Servers } from "./@types";
-import { FETCH_SERVERS_LIST_ACTION } from "./redux/modules/servers/actions";
+import { useAppDispatch } from "./hooks";
+import { OptionItem } from "./@types";
+
+import {
+  changeSelectedServerAction,
+  getServersAction,
+} from "./redux/modules/servers/slice";
+
+import { StateType } from "./redux/reducers";
+import { useSelector } from "react-redux";
 
 // import { MantineProvider, Text } from "@mantine/core";
 
 function App() {
-  const servers = useAppSelector<Servers>((state) => state.servers.servers);
+  const servers = useSelector((state: StateType) => state.servers.servers);
+
   const appDispatch = useAppDispatch();
 
   const [items, setItems] = useState<Array<OptionItem>>([]);
 
   React.useEffect(() => {
-    appDispatch({
-      type: FETCH_SERVERS_LIST_ACTION,
-      payload: { rows: [] },
-    });
+    appDispatch(getServersAction());
   }, []);
 
   React.useEffect(() => {
     console.log("asdasds");
+
     const tempArr: Array<OptionItem> = [];
-    for (let row of servers?.rows ?? []) {
+    tempArr.push({ value: "all", text: "All" });
+    for (let row of servers.data?.rows ?? []) {
       tempArr.push({ value: row.serverId, text: row.serverName });
     }
 
@@ -33,6 +40,10 @@ function App() {
   }, [servers]);
 
   console.log(servers);
+  const onServerChanged = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    appDispatch(changeSelectedServerAction(e.target.value));
+    // console.log(e.target.value);
+  };
 
   return (
     <div>
@@ -52,7 +63,7 @@ function App() {
         <a href="#" className="header-item">
           Header item 5
         </a>
-        <Select items={items}></Select>
+        <Select items={items} onChange={onServerChanged}></Select>
       </Header>
       <div className=" body">
         <p>1</p>

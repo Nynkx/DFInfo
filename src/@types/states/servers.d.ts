@@ -7,4 +7,5 @@ export interface IServersState {
 
 export type ServersState = {
   servers: IServersState;
+  selectedServer: String;
 };

@@ -7,6 +7,7 @@ const initialState: ServersState = {
     data: null,
     error: "",
   },
+  selectedServer: "all",
 };
 
 export const serversSlice = createSlice({
@@ -28,6 +29,12 @@ export const serversSlice = createSlice({
     ) => {
       state.servers.error = error;
     },
+    changeSelectedServerAction: (
+      state: ServersState,
+      { payload: selectedServer }: PayloadAction<string>
+    ) => {
+      state.selectedServer = selectedServer;
+    },
   },
 });
 
@@ -35,6 +42,7 @@ export const {
   getServersAction,
   getServersSuccessAction,
   getServersErrorAction,
+  changeSelectedServerAction,
 } = serversSlice.actions;
 
 export default serversSlice.reducer;

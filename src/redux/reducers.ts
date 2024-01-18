@@ -1,8 +1,12 @@
 import { combineReducers } from "redux";
-import serversReducer from "@/redux/modules/servers/reducer";
+import serversReducer from "@/redux/modules/servers/slice";
 
-export default () => {
-  combineReducers({
-    servers: serversReducer,
-  });
+import { ServersState } from "@/@types/states/servers";
+
+export type StateType = {
+  servers: ServersState;
+};
+
+export const rootReducer = {
+  servers: serversReducer,
 };
