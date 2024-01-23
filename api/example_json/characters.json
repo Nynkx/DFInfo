@@ -1,0 +1,15 @@
+{
+  "rows": [
+    {
+      "serverId": "cain",
+      "characterId": "5f0ac4b5a105139f119ce52e95c45c0a",
+      "characterName": "ShinraBeta",
+      "level": 110,
+      "jobId": "08cf6465c8dfcdbf5a896b40a2811007",
+      "jobGrowId": "53632e641719388657407af4f9c063ac",
+      "jobName": "Slayer (F)",
+      "jobGrowName": "Neo: Dark Templar",
+      "fame": 19418
+    }
+  ]
+}
