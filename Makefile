@@ -1,6 +1,8 @@
 BIN_NAME=app
 export GO111MODULE=on
 
+.PHONY: init
+init: init-client init-server
 
 .PHONY: init-server
 init-server:
