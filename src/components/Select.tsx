@@ -9,6 +9,8 @@ const Select: React.FC<SelectComponentProps> = (props) => {
     <>
       <label htmlFor={props.id}></label>
       <select
+        title={props.title}
+        name={props.name}
         id={props.id}
         multiple={props.multiple}
         className="select"

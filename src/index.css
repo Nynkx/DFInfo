@@ -30,7 +30,7 @@
   }
 
   .header-item {
-    @apply block text-gray-300 
+    @apply block text-gray-300 my-auto
     hover:bg-transparent hover:text-white;
   }
 

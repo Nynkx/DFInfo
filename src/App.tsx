@@ -48,8 +48,8 @@ function App() {
   return (
     <div>
       <Header>
-        <a href="#" className="header-item">
-          Header item 1
+        <a href="/ranking" className="header-item">
+          Ranking
         </a>
         <a href="#" className="header-item">
           Header item 2
@@ -63,7 +63,12 @@ function App() {
         <a href="#" className="header-item">
           Header item 5
         </a>
-        <Select items={items} onChange={onServerChanged}></Select>
+        <Select
+          title="server"
+          name="server-selector"
+          items={items}
+          onChange={onServerChanged}
+        ></Select>
       </Header>
       <div className=" body">
         <p>1</p>

@@ -2,10 +2,10 @@ import * as React from "react";
 
 import { HeaderProps } from "@/@types";
 
-export const Header: React.FC = (props: HeaderProps) => {
+export const Header: React.FC<HeaderProps> = (props) => {
   return (
     <>
-      <header className="sticky top-0">
+      <header className="sticky top-0 ">
         <nav className="w-full bg-gray-700 py-2.5 px-6">
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <div className="flex w-auto justify-between items-center">
