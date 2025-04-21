@@ -6,6 +6,11 @@
     const { Story } = defineMeta({
         
         component: DropDown,
+        argTypes: {
+            position: { control: 'select', options: ['left', 'right'] },
+            
+            
+        },
 
     });
 
