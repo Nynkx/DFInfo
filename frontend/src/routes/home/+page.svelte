@@ -1,9 +1,29 @@
-<h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-  <style lang="postcss">
-    @reference "tailwindcss";
-    :global(html) {
-      background-color: theme(--color-gray-100);
-    }
-  </style>
+<script lang="ts">
+  import { Menu } from "@skeletonlabs/skeleton-svelte";
+</script>
+
+<div class="h-screen grid grid-rows-[auto_1fr_auto]">
+  <header class="p-2 border-b border-double border-gray-300">
+    <div class="flex items-center justify-center">
+      <h1 class="align-middle">Header</h1>
+
+      <Menu>
+        <Menu.Trigger class="btn preset-outlined border-gray-500"
+          >Server</Menu.Trigger
+        >
+      </Menu>
+    </div>
+  </header>
+  <div class="grid grid-col md:grid-cols-[auto_1fr]">
+    <aside class="p-2 border-r border-double border-gray-300">aside</aside>
+    <main class="p-2 border-l border-double border-gray-300">main</main>
+  </div>
+  <footer class="p-2 border-t border-double border-gray-300">footer</footer>
+</div>
+
+<style lang="postcss">
+  @reference "tailwindcss";
+  /* :global(html) {
+    background-color: theme(--color-gray-100);
+  } */
+</style>
