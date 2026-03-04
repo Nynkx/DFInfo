@@ -12,9 +12,9 @@
       <h1 class="align-middle">Header</h1>
 
       <Menu>
-        <Menu.Trigger class="btn preset-outlined border-gray-500"
-          >Server</Menu.Trigger
-        >
+        <Menu.Trigger class="btn preset-outlined border-gray-500">
+          Server
+        </Menu.Trigger>
       </Menu>
     </div>
   </header>
