@@ -1,0 +1,12 @@
+
+
+
+services:
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend:/app
+    environment:
+      - GIN_MODE=debug
+    ports:
+      - "8080:8080"
